@@ -19,3 +19,4 @@ done
 
 export BR2_ROOTFS_OVERLAY="/app/rootfs ${BR2_ROOTFS_OVERLAY}"
 export BR2_ROOTFS_POST_BUILD_SCRIPT="/app/bin/dockerize ${BR2_ROOTFS_POST_BUILD_SCRIPT}"
+export BR2_DL_DIR="/buildroot/output/downloads"

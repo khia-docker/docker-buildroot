@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 source /app/bin/env
 cd /buildroot && make allnoconfig
 source /app/bin/env # we need to source it second time

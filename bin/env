@@ -1,7 +1,21 @@
-mkdir -p /buildroot/output/build/buildroot-config/
+mandatory_files=(
+  /data/Config.in
+  /data/external.mk
+  /data/mini.config
+  /buildroot/output/build/buildroot-config/auto.conf
+  /buildroot/output/build/buildroot-config/autoconf.h
+  /buildroot/output/build/buildroot-config/tristate.config
+)
+
+mkdir -p /data /buildroot/output/build/buildroot-config/
+
+for file in ${mandatory_files[@]}
+do
+  if [ ! -f ${file} ]; then
+    echo "Create empty file ${file}"
+    touch ${file}
+  fi
+done
+
 export BR2_ROOTFS_OVERLAY="/app/rootfs ${BR2_ROOTFS_OVERLAY}"
 export BR2_ROOTFS_POST_BUILD_SCRIPT="/app/bin/dockerize ${BR2_ROOTFS_POST_BUILD_SCRIPT}"
-touch \
-  /buildroot/output/build/buildroot-config/auto.conf \
-  /buildroot/output/build/buildroot-config/autoconf.h \
-  /buildroot/output/build/buildroot-config/tristate.config

@@ -2,7 +2,12 @@
 set -e
 source /app/bin/env
 cd /buildroot && make allnoconfig
-source /app/bin/env # we need to source it second time
+
+# Update access time to trigger build
+touch \
+  /buildroot/output/build/buildroot-config/auto.conf \
+  /buildroot/output/build/buildroot-config/autoconf.h \
+  /buildroot/output/build/buildroot-config/tristate.config
 
 sleep 3 # For whatever reason this script doesn't work inside docker without `sleep`
 make "$@"

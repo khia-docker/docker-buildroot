@@ -1,0 +1,7 @@
+mkdir -p /buildroot/output/build/buildroot-config/
+export BR2_ROOTFS_OVERLAY="/app/rootfs ${BR2_ROOTFS_OVERLAY}"
+export BR2_ROOTFS_POST_BUILD_SCRIPT="/app/bin/dockerize ${BR2_ROOTFS_POST_BUILD_SCRIPT}"
+touch \
+  /buildroot/output/build/buildroot-config/auto.conf \
+  /buildroot/output/build/buildroot-config/autoconf.h \
+  /buildroot/output/build/buildroot-config/tristate.config

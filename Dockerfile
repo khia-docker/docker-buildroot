@@ -9,6 +9,8 @@ ADD bin/silent.sh /app/bin/silent
 ADD bin/build.sh  /app/bin/build
 ADD bin/menu.sh   /app/bin/menu
 ADD bin/miniconfig.sh /app/bin/miniconfig
+ADD bin/env /app/bin/env
+
 ADD rootfs        /app/rootfs
 
 ENV BR2_EXTERNAL "/data"
